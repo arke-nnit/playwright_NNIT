@@ -33,7 +33,7 @@ test('Make appointment', async ({ page }) => {
   });
 
   await test.step('Fill out the relevant fields and book appointment', async () => {
-    // Select the "Tokyo CURA Healthcare Center" option from the dropdown
+    // Select the "Hongkong CURA Healthcare Center" option from the dropdown
     await page.selectOption('#combo_facility', { label: 'Hongkong CURA Healthcare Center' });
 
     // Check the checkbox Apply for hospotal readmission

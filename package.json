@@ -9,6 +9,9 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.44.0",
-    "@types/node": "^20.11.24"
+    "@testomatio/reporter": "^1.4.1",
+    "@types/node": "^20.11.24",
+    "monocart-reporter": "^2.4.6",
+    "playwright-xray": "^0.6.1"
   }
 }
