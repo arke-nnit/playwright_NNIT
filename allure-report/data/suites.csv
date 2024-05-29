@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed May 29 13:39:31 CEST 2024","Wed May 29 13:39:36 CEST 2024","5263","webkit","appointment_example.spec.js","","","","Make appointment",""
+"passed","Wed May 29 13:39:30 CEST 2024","Wed May 29 13:39:34 CEST 2024","3853","chromium","appointment_example.spec.js","","","","Make appointment",""
+"passed","Wed May 29 13:39:31 CEST 2024","Wed May 29 13:39:35 CEST 2024","4545","firefox","appointment_example.spec.js","","","","Make appointment",""

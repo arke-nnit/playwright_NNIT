@@ -8,9 +8,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.44.0",
+    "@playwright/test": "^1.44.1",
     "@testomatio/reporter": "^1.4.1",
     "@types/node": "^20.11.24",
+    "allure-commandline": "^2.29.0",
+    "allure-playwright": "^2.15.1",
     "monocart-reporter": "^2.4.6",
     "playwright-xray": "^0.6.1"
   }

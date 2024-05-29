@@ -1,6 +1,7 @@
-// @ts-check
+// Import modules
 const { test, expect } = require('@playwright/test'); // Import necessary functions from Playwright Test
 const path = require('path'); // Import the 'path' module from Node.js
+const { allure } = require('allure-playwright'); // Import the allure module
 
 // Define the path to the screenshots folder relative to the current script's location
 const screenshotsFolder = path.join(__dirname, '..', 'screenshots');
@@ -29,7 +30,8 @@ test('Make appointment', async ({ page }) => {
     expect(await page.isVisible('h2:has-text("Make Appointment")')).toBeTruthy();
 
     // Take a screenshot after logging in
-    await page.screenshot({ path: path.join(screenshotsFolder, 'loggedIn.png') });
+    const loginScreenshot = await page.screenshot();
+    await allure.attachment('Logged In', loginScreenshot, 'image/png');
   });
 
   await test.step('Fill out the relevant fields and book appointment', async () => {
@@ -54,6 +56,7 @@ test('Make appointment', async ({ page }) => {
     await page.click('#btn-book-appointment');
 
     // Take a screenshot to confirm appointment
-    await page.screenshot({ path: path.join(screenshotsFolder, 'appointmentConfirmation.png') });
+    const appointmentConfirmationScreenshot = await page.screenshot();
+    await allure.attachment('Appointment Confirmation', appointmentConfirmationScreenshot, 'image/png');
   });
 });
