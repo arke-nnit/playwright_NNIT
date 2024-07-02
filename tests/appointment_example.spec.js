@@ -12,6 +12,7 @@ const screenshotsFolder = path.join(__dirname, '..', 'screenshots');
 
 // Define a test to make an appointment
 test.describe(`Demo - Herokuapp`, () => {
+  // Before each test, navigate to the web application
   test.beforeEach(async ({ page }, testInfo) => {
       try {
           console.log(`START -> ${testInfo.title}`);
@@ -23,6 +24,7 @@ test.describe(`Demo - Herokuapp`, () => {
       }
   });
 
+  // After each test, log completion status and close web application
   test.afterEach(async ({ page }, testInfo) => {
       try {
           // Closes the browser
@@ -35,6 +37,7 @@ test.describe(`Demo - Herokuapp`, () => {
       }
   });
 
+  // Test function
   test('Make appointment', async ({ page }) => {
     await test.step('Step 1: Enter credentials and login', async () => {
       // Click on the "Make Appointment" button
