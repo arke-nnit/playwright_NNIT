@@ -1,9 +1,14 @@
 {
   "name": "playwright",
   "version": "1.0.0",
-  "description": "",
+  "description": "Example project demonstrating Playwright automated testing with CI/CD integration.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:ci": "playwright test --reporter=line,json --output=test-results",
+    "allure:generate": "allure generate test-results --clean -o allure-report",
+    "allure:open": "allure open allure-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
