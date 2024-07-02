@@ -3,9 +3,9 @@ import { test, expect } from '@playwright/test'; // Import necessary functions f
 import path from 'path'; // Import the 'path' module from Node.js
 const { allure } = require('allure-playwright'); // Import the allure module
 import { LOGIN } from '../lib/functions.js';
-import { CONST_LOGIN_USERNAME, CONST_LOGIN_PASSWORD, CONST_ID_BUTTON_MAKE, CONST_ID_HEADER_MAKEAPPOINTMENT,
-  CONST_ID_DROPDOWN_FACILITY, CONST_ID_CHECKBOX_HOSPITALREADMISSION, CONST_ID_RADIOBUTTON_MEDICARE, CONST_ID_DATE_VISITDATE,
-  CONST_ID_FIELD_COMMENT, CONST_ID_BUTTON_BOOKAPPOINTMENT } from '../lib/constants.js';
+import { CONST_URL, CONST_ID_BUTTON_MAKE, CONST_ID_HEADER_MAKEAPPOINTMENT,   CONST_ID_DROPDOWN_FACILITY, CONST_ID_CHECKBOX_HOSPITALREADMISSION,
+  CONST_ID_RADIOBUTTON_MEDICARE, CONST_ID_DATE_VISITDATE, CONST_ID_TEXTFIELD_COMMENT, CONST_ID_BUTTON_BOOKAPPOINTMENT,
+  CONST_ID_HEADER_APPOINTMENTCONFIRMATION } from '../lib/constants.js';
 
 // Define the path to the screenshots folder relative to the current script's location
 const screenshotsFolder = path.join(__dirname, '..', 'screenshots');
@@ -16,7 +16,7 @@ test.describe(`Demo - Herokuapp`, () => {
       try {
           console.log(`START -> ${testInfo.title}`);
           // Navigate to the web application
-          await page.goto('https://katalon-demo-cura.herokuapp.com/');
+          await page.goto(CONST_URL);
       } catch (error) {
           console.error(error);
           throw error;
@@ -36,11 +36,6 @@ test.describe(`Demo - Herokuapp`, () => {
   });
 
   test('Make appointment', async ({ page }) => {
-    await test.step('Navigate to the web page', async () => {
-      // Navigate to the web application
-      await page.goto('https://katalon-demo-cura.herokuapp.com/');
-    });
-
     await test.step('Step 1: Enter credentials and login', async () => {
       // Click on the "Make Appointment" button
       await page.click(CONST_ID_BUTTON_MAKE);
@@ -72,10 +67,13 @@ test.describe(`Demo - Herokuapp`, () => {
       await page.press(CONST_ID_DATE_VISITDATE, 'Enter');
 
       // Fill out the comment section with the message 'This is a test'
-      await page.fill(CONST_ID_FIELD_COMMENT, 'This is a test');
+      await page.fill(CONST_ID_TEXTFIELD_COMMENT, 'This is a test');
 
       // Click on the "Book Appointment" button
       await page.click(CONST_ID_BUTTON_BOOKAPPOINTMENT);
+
+      // Validate Appointment Confirmation
+      expect(await page.isVisible(CONST_ID_HEADER_APPOINTMENTCONFIRMATION)).toBeTruthy();
 
       // Take a screenshot to confirm appointment
       const appointmentConfirmationScreenshot = await page.screenshot();
