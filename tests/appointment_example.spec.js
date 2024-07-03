@@ -81,9 +81,6 @@ test.describe(`Demo - Herokuapp`, () => {
       // Take a screenshot to confirm appointment
       const appointmentConfirmationScreenshot = await page.screenshot();
       await allure.attachment('Appointment Confirmation', appointmentConfirmationScreenshot, 'image/png');
-      // Test
-      const appointmentConfirmationScreenshotTEST = await page.screenshot();
-      await allure.attachment('Appointment Confirmation TEST', appointmentConfirmationScreenshotTEST, 'image/png');
     });
   });
 });
