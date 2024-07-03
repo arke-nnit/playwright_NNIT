@@ -49,9 +49,9 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'arke@nnit.com'
-          git checkout --orphan gh-pages
-          git --work-tree=allure-report add --all
-          git --work-tree=allure-report commit -m 'Deploy Allure report'
+          git add allure-report
+          git commit -m 'Deploy Allure report'
+          git checkout gh-pages || git checkout --orphan gh-pages
           git push origin HEAD:gh-pages --force
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
