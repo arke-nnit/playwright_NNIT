@@ -1,7 +1,7 @@
 {
   "name": "playwright",
   "version": "1.0.0",
-  "description": "Example project demonstrating Playwright automated testing with CI/CD integration.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
